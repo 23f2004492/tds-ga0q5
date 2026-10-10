@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: code-interpreter-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: AIPIPE_TOKEN
+        sync: false
+      - key: AIPIPE_MODEL
+        value: gpt-4.1-nano
